@@ -98,6 +98,8 @@ def convert_cells(cells):
             color = '6'
         elif r == '65535' and g == '65535' and b == '65535':  # White
             color = '7'
+        elif r == '65535' and g == '32768' and b == '0':  # Orange
+            color = '8'
         else:
             raise Exception('Unknown color: {},{},{}'.format(r, g, b))
         output.append('color={}'.format(color))
@@ -112,6 +114,8 @@ def convert_cells(cells):
             is_input = '1'
         elif func == 'QCAD_CELL_OUTPUT':
             is_output = '1'
+        elif func == 'QCAD_CELL_FIXED':
+            is_fixed = '1'
         output.append('is_input={}'.format(is_input))
         output.append('is_output={}'.format(is_output))
         output.append('is_fixed={}'.format(is_fixed))
